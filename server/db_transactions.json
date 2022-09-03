@@ -1,10 +1,10 @@
 {
   "transactions": [
     {
-      "id": 1,
-      "name": "Salary from Google",
+      "name": "Salary from serabuy",
+      "amount": 1000000,
       "type": "income",
-      "amount": 1000000
+      "id": 1
     },
     {
       "id": 2,
@@ -13,9 +13,9 @@
       "amount": 200000
     },
     {
-      "type": "income",
-      "name": "test",
+      "name": "test2",
       "amount": "1234",
+      "type": "expense",
       "id": 3
     },
     {
