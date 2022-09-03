@@ -1,5 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { editIransactions, getIransactions } from "./transctionAPI";
+import {
+  addIransactions,
+  deleteIransactions,
+  editIransactions,
+  getTransactions,
+} from "./transctionAPI";
 
 const initialState = {
   transactions: [],
@@ -11,7 +16,7 @@ const initialState = {
 export const fetchTransactions = createAsyncThunk(
   "transaction/fetchTransaction",
   async () => {
-    const transactions = await getIransactions();
+    const transactions = await getTransactions();
     return transactions;
   }
 );
@@ -19,7 +24,7 @@ export const fetchTransactions = createAsyncThunk(
 export const createTransaction = createAsyncThunk(
   "transaction/createTransaction",
   async (data) => {
-    const transactions = await getIransactions(data);
+    const transactions = await addIransactions(data);
     return transactions;
   }
 );
@@ -34,7 +39,7 @@ export const changeTransaction = createAsyncThunk(
 export const removeTransaction = createAsyncThunk(
   "transaction/removeTransaction",
   async (id) => {
-    const transactions = await editIransactions(id);
+    const transactions = await deleteIransactions(id);
     return transactions;
   }
 );
@@ -112,4 +117,4 @@ const transactionSlice = createSlice({
       });
   },
 });
-export default transactionSlice;
+export default transactionSlice.reducer;
