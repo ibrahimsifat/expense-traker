@@ -118,7 +118,12 @@ export default function Form() {
           />
         </div>
 
-        <button disabled={isLoading} className="btn" type="submit">
+        <button
+          disabled={isLoading}
+          className="btn"
+          type="submit"
+          style={{ backgroundColor: "#4338ca" }}
+        >
           {editMode ? "Update Transaction" : "Add Transaction"}
         </button>
         {!isLoading && isError && (
