@@ -18,7 +18,7 @@ export const fetchTransactions = createAsyncThunk(
   "transaction/fetchTransaction",
   async () => {
     const transactions = await getTransactions();
-    return transactions;
+    return transactions?.sort((a, b) => (a.id > b.id ? -1 : 1));
   }
 );
 
@@ -82,7 +82,7 @@ const transactionSlice = createSlice({
       .addCase(createTransaction.fulfilled, (state, action) => {
         state.isError = false;
         state.isLoading = false;
-        state.transactions.push(action.payload);
+        state.transactions = [action.payload, ...state.transactions];
       })
       .addCase(createTransaction.rejected, (state, action) => {
         state.isLoading = false;

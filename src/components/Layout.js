@@ -1,12 +1,18 @@
-import { Link } from "react-router-dom";
-
+import { Link, useMatch } from "react-router-dom";
+import SearchBar from "../components/allTransactions/SearchBar";
 export default function Layout({ children }) {
+  const matchRoute = useMatch("alltransactions");
   return (
     <div className="App">
-      <div className="header">
-        <Link to="/" className="underline-none">
+      <div
+        className={`header ${
+          matchRoute && "flex justify-between items-center"
+        }`}
+      >
+        <Link to="/" className="underline-none text-2xl">
           <h1> Expense Tracker</h1>
         </Link>
+        {matchRoute && <SearchBar />}
       </div>
 
       <div className="main">

@@ -1,34 +1,58 @@
 {
   "transactions": [
     {
-      "type": "expense",
-      "name": "course",
-      "amount": 1000000,
-      "id": 6
-    },
-    {
       "type": "income",
       "name": "salry1",
-      "amount": 2222222,
-      "id": 7
+      "amount": 12121212,
+      "id": 1
     },
     {
       "type": "income",
       "name": "salry2",
-      "amount": 3452345,
-      "id": 8
+      "amount": 121212,
+      "id": 2
     },
     {
       "type": "income",
-      "name": "salry24",
-      "amount": 2354154,
-      "id": 9
+      "name": "salry3",
+      "amount": 12132123,
+      "id": 3
     },
     {
       "type": "expense",
       "name": "car",
-      "amount": 14514,
-      "id": 10
+      "amount": 523451234,
+      "id": 4
+    },
+    {
+      "type": "expense",
+      "name": "naaslf",
+      "amount": 4315,
+      "id": 5
+    },
+    {
+      "type": "income",
+      "name": "salry24",
+      "amount": 258963,
+      "id": 6
+    },
+    {
+      "name": "23423",
+      "amount": "34523453452",
+      "type": "income",
+      "id": 7
+    },
+    {
+      "type": "income",
+      "name": "234524",
+      "amount": 52345,
+      "id": 8
+    },
+    {
+      "type": "income",
+      "name": "2345",
+      "amount": 2345234,
+      "id": 9
     }
   ]
 }
