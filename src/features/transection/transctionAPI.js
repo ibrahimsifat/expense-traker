@@ -6,7 +6,7 @@ export const getTransactions = async (pageNo, type, search) => {
   let queryString = "";
   const limitString = `_limit=${pageLimit}&_page=${pageNo}`;
   if (type !== "All") {
-    queryString += `&type_like=${type}`;
+    queryString += `type_like=${type}`;
   }
   console.log(search);
   if (search !== "") {
