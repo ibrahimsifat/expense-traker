@@ -8,10 +8,11 @@ export default function AllTransactions() {
   const { transactions, isLoading, isError } = useSelector(
     (state) => state.transaction
   );
+  const { pageNo } = useSelector((state) => state.filters);
 
   useEffect(() => {
-    dispatch(fetchTransactions());
-  }, [dispatch]);
+    dispatch(fetchTransactions(pageNo));
+  }, [dispatch, pageNo]);
 
   // dicide what to render
   let content = null;
