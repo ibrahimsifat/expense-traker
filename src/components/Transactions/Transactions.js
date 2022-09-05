@@ -14,7 +14,7 @@ export default function Transactions() {
     dispatch(fetchTransactions({ pageNo, type, search }));
   }, [dispatch, pageNo, type, search]);
 
-  // dicide what to render
+  // diside what to render
   let content = null;
   if (isLoading) content = <p>Loading....</p>;
   if (!isLoading && isError)
