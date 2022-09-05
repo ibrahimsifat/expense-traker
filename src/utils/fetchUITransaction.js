@@ -1,10 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { fetchTransactions } from "../../features/transection/transactionSlice";
-import Transaction from "./Transaction";
+import Transactions from "../components/Transactions/Transactions";
+import { fetchTransactions } from "../features/transection/transactionSlice";
 
-export default function Transactions() {
+const FetchUITransaction = ({ children }) => {
   const dispatch = useDispatch();
   const { transactions, isLoading, isError } = useSelector(
     (state) => state.transaction
@@ -21,30 +20,19 @@ export default function Transactions() {
     content = <p className="error">There was an error accourd</p>;
   if (!isLoading && !isError && transactions?.length > 0) {
     content = transactions.map((transaction) => (
-      <Transaction key={transaction.id} transaction={transaction} />
+      <Transactions key={transaction.id} transaction={transaction} />
     ));
   }
   if (!isLoading && !isError && transactions?.length === 0) {
     content = <p>Transactions not found</p>;
   }
   return (
-    <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <p className="second_heading">Your Transactions:</p>
-        <Link to="/alltransactions">
-          <button className="view_btn">View All</button>
-        </Link>
-      </div>
-
+    <div>
+      {children}
       <div className="conatiner_of_list_of_transactions">
         <ul>{content}</ul>
       </div>
-    </>
+    </div>
   );
-}
+};
+export default FetchUITransaction;

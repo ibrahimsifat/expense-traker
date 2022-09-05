@@ -16,8 +16,8 @@ const initialState = {
 
 export const fetchTransactions = createAsyncThunk(
   "transaction/fetchTransaction",
-  async (pageNo) => {
-    const transactions = await getTransactions(pageNo);
+  async ({ pageNo, type, search }) => {
+    const transactions = await getTransactions(pageNo, type, search);
     return transactions?.sort((a, b) => (a.id > b.id ? -1 : 1));
   }
 );

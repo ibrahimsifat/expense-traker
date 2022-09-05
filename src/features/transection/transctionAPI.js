@@ -1,9 +1,20 @@
 import axios from "../../utils/axios";
 
-export const getTransactions = async (pageNo) => {
+export const getTransactions = async (pageNo, type, search) => {
   const pageLimit = 5;
+  console.log(type);
+  let queryString = "";
   const limitString = `_limit=${pageLimit}&_page=${pageNo}`;
-  const response = await axios.get(`/transactions?${limitString}`);
+  if (type !== "All") {
+    queryString += `&type_like=${type}`;
+  }
+  console.log(search);
+  if (search !== "") {
+    queryString += `&q=${search}`;
+  }
+  const response = await axios.get(
+    `/transactions?${limitString}&${queryString}`
+  );
   return response.data;
 };
 

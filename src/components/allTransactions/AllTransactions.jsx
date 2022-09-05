@@ -8,11 +8,11 @@ export default function AllTransactions() {
   const { transactions, isLoading, isError } = useSelector(
     (state) => state.transaction
   );
-  const { pageNo } = useSelector((state) => state.filters);
+  const { pageNo, type, search } = useSelector((state) => state.filters);
 
   useEffect(() => {
-    dispatch(fetchTransactions(pageNo));
-  }, [dispatch, pageNo]);
+    dispatch(fetchTransactions({ pageNo, type, search }));
+  }, [dispatch, pageNo, type, search]);
 
   // dicide what to render
   let content = null;
@@ -29,7 +29,7 @@ export default function AllTransactions() {
   }
   return (
     <>
-      <p className="second_heading">Your Transactions:</p>
+      <p className="second_heading text-2xl font-bold">Your Transactions:</p>
 
       <div className="conatiner_of_list_of_transactions">
         <ul>{content}</ul>

@@ -1,8 +1,7 @@
 const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
-  income: [],
-  expense: [],
+  type: "All",
   search: "",
   pageNo: 1,
 };
@@ -27,8 +26,8 @@ const filterSlice = createSlice({
     pageNoChanged: (state, action) => {
       state.pageNo = action.payload;
     },
-    authorChanged: (state, action) => {
-      state.author = action.payload;
+    typeChanged: (state, action) => {
+      state.type = action.payload;
     },
     resetInitialState: (state, action) => {
       state.tags = [];
@@ -45,6 +44,6 @@ export const {
   tagRemoved,
   searched,
   pageNoChanged,
-  authorChanged,
+  typeChanged,
   resetInitialState,
 } = filterSlice.actions;
